@@ -9,8 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $wm_setting_app_browser chromium
-exec --no-startup-id xrandr --output HDMI-1 --rotate right --right-of DP-3
+#set $wm_setting_app_browser chromium
+#exec --no-startup-id xrandr --output HDMI-1 --rotate right --right-of DP-3
 
 for_window [class="^.*"] border pixel 1
 
@@ -20,15 +20,17 @@ set $mod Mod4
 
 exec --no-startup-id picom
 #exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/lucas-benjamin-R79qkPYvrcM-unsplash.jpg
-exec --no-startup-id feh --bg-scale --geometry 2560x1440+0+0 ~/Pictures/Wallpapers/lucas-benjamin-R79qkPYvrcM-unsplash.jpg --geometry 1440x2560+2560+0 ~/Pictures/Wallpapers/lucas-benjamin-R79qkPYvrcM-unsplash.jpg
-
+exec --no-startup-id feh --bg-scale --geometry 2560x1600+0+0 ~/Pictures/lucas-benjamin-unsplash.avif
+exec --no-startup-id xss-lock -- ~/.config/i3/lock.sh
+#lock screen key command
+bindsym ctrl+$mod+l exec --no-startup-id sleep 1 && xset dpms force suspend
 
 #exec --no-startup-id xrdb -merge ~/.Xresources
 #exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # kill any hanging polybar processes
-exec_always killall polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+#exec_always killall polybar
+#exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 #bindsym Print exec maim "/home/$USER/Pictures/Wallpapers/lucas-benjamin-R79qkPYvrcM-unsplash.jpg"
 #bindsym $mod+Print exec maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/Wallpapers/lucas-benjamin-R79qkPYvrcM-unsplash.jpg"
@@ -124,7 +126,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
-bindsym $mod+a focus paren
+bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -183,8 +185,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+bindsym $mod+Shift+e exec --no-startup-id i3-msg exit
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
