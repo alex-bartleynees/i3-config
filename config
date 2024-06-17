@@ -29,8 +29,8 @@ bindsym ctrl+$mod+l exec --no-startup-id sleep 1 && xset dpms force suspend
 #exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 
 # kill any hanging polybar processes
-#exec_always killall polybar
-#exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec_always killall polybar
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 #bindsym Print exec maim "/home/$USER/Pictures/Wallpapers/lucas-benjamin-R79qkPYvrcM-unsplash.jpg"
 #bindsym $mod+Print exec maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/Wallpapers/lucas-benjamin-R79qkPYvrcM-unsplash.jpg"
